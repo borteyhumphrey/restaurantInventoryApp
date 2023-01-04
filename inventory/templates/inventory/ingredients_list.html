@@ -1,31 +1,31 @@
-{% extends './base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'inventory/style.css' %}" />
-{% endblock %} {% block content %}
+{% extends './base.html' %}
 
-<h1>Ingredients</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Quantity</th>
-    <th>Unit</th>
-    <th>Unit Price</th>
-    <th>Actions</th>
-  </tr>
+{% block content %}
 
-  {% for ingredient in object_list %}
-  <tr>
-    <td>{{ ingredient.name }}</td>
-    <td>{{ ingredient.quantity }}</td>
-    <td>{{ ingredient.unit }}</td>
-    <td>$ {{ ingredient.unit_price }}</td>
-    <td>
-      <a class="edit_button" href="{% url 'ingredientupdate' ingredient.id %}"
-        >Edit</a
-      >
-      <a class="delete_button" href="#">Delete</a>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+  <h1>Ingredients</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </tr>
+
+    {% for ingredient in object_list %}
+    <tr>
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.quantity }}</td>
+      <td>{{ ingredient.unit }}</td>
+      <td>$ {{ ingredient.unit_price }}</td>
+      <td>
+        <a class="edit_button" href="{% url 'ingredientupdate' ingredient.id %}"
+          >Edit</a
+        >
+        <a class="delete_button" href="#">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
 
 {% endblock %}
