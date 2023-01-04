@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+
+{% load static %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'inventory/style.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="menu">
+  {% for menu_item in object_list %}
+
+  <div class="menu_item">
+    
+    <ul class="menu_title">
+      <li><h2>{{ menu_item.title }}</h2></li>
+      <li><h2>$ {{ menu_item.price }}</h2></li>
+    </ul>
+
+    <ul class="menu_ingredients">
+      {% for recipe_requirement in menu_item.reciperequirement_set.all %}
+      <li>
+        {{ recipe_requirement.quantity }} 
+        {{ recipe_requirement.ingredient.unit }}
+        {{ recipe_requirement.ingredient.name }}
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

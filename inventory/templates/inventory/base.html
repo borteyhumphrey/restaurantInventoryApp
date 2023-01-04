@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <div class="logo">
+          <img
+            src="{% static 'inventory/images/x.o cafe-1.png' %}"
+            alt="logo"
+          />
+        </div>
+        <div class="nav_container">
+          <nav>
+            <ul>
+              <li>
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+              <!-- <li>
+                <a href="{% url 'ingredientcreate' %}">Add new ingredient</a>
+              </li> -->
+              <li><a href="{% url 'ingredientlist' %}">Ingredients</a></li>
+              <li><a href="{% url 'menucreate' %}">Menu</a></li>
+              <li><a href="{% url 'menulist' %}">Menu List</a></li>
+              <li><a href="{% url 'purchaselist' %}">Purchases</a></li>
+              <li>
+                <!-- <a href="{% url 'purchasecreate' %}">Record new purchase</a> -->
+              </li>
+              <li><a href="{% url 'recipecreate' %}">Recipe</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>
