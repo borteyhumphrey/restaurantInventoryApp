@@ -22,17 +22,27 @@
               <li>
                 <a href="{% url 'home' %}">Home</a>
               </li>
-              <li>
-                <a href="{% url 'ingredientcreate' %}">Add new ingredient</a>
+              <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Ingredients</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="{% url 'ingredientlist' %}" class="dropdown-item">Ingredient list<a>
+                  </li>
+                  <li><a href="{% url 'ingredientcreate' %}" class="dropdown-item">Add ingredient</a></li>
+                </ul>
               </li>
-              <li><a href="{% url 'ingredientlist' %}">Ingredients</a></li>
-              <li><a href="{% url 'menucreate' %}">Menu</a></li>
-              <li><a href="{% url 'menulist' %}">Menu List</a></li>
-              <li><a href="{% url 'purchaselist' %}">Purchases</a></li>
-              <li>
-                <a href="{% url 'purchasecreate' %}">Record new purchase</a>
+              <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'menucreate' %}" class="dropdown-item">Add menu item<a></li>
+                  <li><a href="{% url 'recipecreate' %}" class="dropdown-item">Add recipe to menu</a></li>
+                  <li><a href="{% url 'menulist' %}" class="dropdown-item">View menu</a></li>
+                </ul>
               </li>
-              <li><a href="{% url 'recipecreate' %}">Recipe</a></li>
+              <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Purchases</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'purchaselist' %}" class="dropdown-item">View purchases</a></li>
+                  <li><a href="{% url 'purchasecreate' %}" class="dropdown-item">Record new purchase</a></li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>
