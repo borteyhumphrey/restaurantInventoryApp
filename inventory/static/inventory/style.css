@@ -127,7 +127,7 @@ table {
 }
 
 th {
-  text-align: left;
+  text-align: center;
 }
 
 tr {
@@ -135,6 +135,7 @@ tr {
 }
 
 td {
+  text-align: center;
   padding: 15px 0 15px 10px;
   box-sizing: border-box;
   background-color: #fff;
@@ -148,26 +149,6 @@ td:nth-child(1) {
 td:nth-child(5) {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  width: 30%;
 }
 
-a.edit_button {
-  text-decoration: none;
-  background-color: #008000;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  margin: 0 10px 0 0;
-}
-
-a.delete_button {
-  text-decoration: none;
-  background-color: #ff0000;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  margin: 0 10px 0 0;
-}
 
