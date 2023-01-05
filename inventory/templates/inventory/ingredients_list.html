@@ -9,7 +9,6 @@
       <th>Quantity</th>
       <th>Unit</th>
       <th>Unit Price</th>
-      <th>Actions</th>
     </tr>
 
     {% for ingredient in object_list %}
@@ -19,10 +18,13 @@
       <td>{{ ingredient.unit }}</td>
       <td>$ {{ ingredient.unit_price }}</td>
       <td>
-        <a class="edit_button" href="{% url 'ingredientupdate' ingredient.id %}"
-          >Edit</a
-        >
-        <a class="delete_button" href="#">Delete</a>
+        <div class="dropdown">
+          <a href="#" class="text-info-emphasis" role="button" id="dropdownMenuicon" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'ingredientupdate' ingredient.id %}" class="dropdown-item text-success-emphasis"><i class="bi bi-pencil-square me-2"></i>Edit</a></li>
+            <li><a href="#" class="dropdown-item text-danger-emphasis"><i class="bi bi-trash3 me-2"></i>Delete</a></li>
+          </ul>
+        </div>
       </td>
     </tr>
     {% endfor %}
