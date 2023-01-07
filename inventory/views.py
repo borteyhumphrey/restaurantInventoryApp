@@ -2,7 +2,7 @@ from django.shortcuts import render
 from . models import Ingredient, MenuItem, RecipeRequirement, Purchases
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from . forms import IngredientCreate, IngredientUpdate, MenuCreate, PurchaseCreate, RecipeRequirementCreate
+from . forms import IngredientCreate, IngredientUpdate, IngredientDelete, MenuCreate, PurchaseCreate, RecipeRequirementCreate
 
 
 
@@ -26,9 +26,10 @@ class IngredientUpdateView(UpdateView):
     form_class = IngredientUpdate
     success_url = "/ingredients"
 
-class IngredientDelete(DeleteView):
+class IngredientDeleteView(DeleteView):
     model = Ingredient
-    template_name: str
+    template_name = "inventory/ingredients_list.html"
+    success_url = "/ingredients"
 
 class PurchasesList(ListView):
     model = Purchases
