@@ -1,15 +1,16 @@
 {% extends './base.html' %}
 
 {% block content %}
-
-<h2>Add Ingredient to inventory</h2>
-
-<div class="form-group">
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-primary" value="Submit" />
-  </form>
-</div>
-
+<div class="container">
+  <h2 class="text-center mx-2 my-2 px-2 py-2">Add an ingredient</h2>
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="form-group col-8  shadow  bg-body-tertiary rounded">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success mb-3" value="Add" />
+          </form>
+        </div>
+    </div>
+  </div>
 {% endblock %}
