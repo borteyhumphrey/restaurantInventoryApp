@@ -18,6 +18,11 @@ class IngredientUpdate(forms.ModelForm):
         model = Ingredient
         fields = '__all__'
 
+class IngredientDelete(forms.ModelForm):
+    class Meta:
+        model = Ingredient
+        fields = '__all__'
+
 class MenuCreate(forms.ModelForm):
     class Meta:
         model = MenuItem
