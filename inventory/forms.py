@@ -18,6 +18,13 @@ class IngredientUpdate(forms.ModelForm):
         model = Ingredient
         fields = '__all__'
 
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
+            'unit': forms.TextInput(attrs={'class': 'form-control'}),
+            'unit_price': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
 class IngredientDelete(forms.ModelForm):
     class Meta:
         model = Ingredient
