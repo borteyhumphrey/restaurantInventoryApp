@@ -18,39 +18,42 @@
       <td>{{ ingredient.unit }}</td>
       <td>$ {{ ingredient.unit_price }}</td>
       <td>
-      <!-- Modal start -->
-        <!-- Action buttons start -->
-        <div class="dropdown">
-          <a href="#" class="text-info-emphasis" role="button" id="dropdownMenuicon" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+      
+      <!-- Action buttons start -->
+      <div class="dropdown">
+        <a href="#" class="text-info-emphasis" role="button" id="dropdownMenuicon" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
           <ul class="dropdown-menu">
             <li><a href="{% url 'ingredientupdate' ingredient.id %}" class="dropdown-item text-success-emphasis"><i class="bi bi-pencil-square me-2"></i>Edit</a></li>
             <li><a href="#" class="dropdown-item text-danger-emphasis" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3 me-2"></i>Delete</a>
             </li>
           </ul>
-        </div>
-        <!-- Action buttons end -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Confirm Delete</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form method="POST" action="{% url 'ingredientdelete' ingredient.id %}">
-                  {% csrf_token %}
-                  <p>Are you sure you want to delete this ingredient {{ingredient.name }}?</p>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <input type="submit" class="btn btn-danger" value="Delete" />
+      </div>
+      <!-- Action buttons end -->
+
+      <!-- Modal start -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteModalLabel">Confirm Delete</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="{% url 'ingredientdelete' ingredient.id %}">
+                {% csrf_token %}
+                <p>Are you sure you want to delete this ingredient {{ingredient.name }}?</p>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <input type="submit" class="btn btn-danger" value="Delete" />
                 </div>
-                </form>
-                
+              </form>  
             </div>
           </div>
         </div>
-        <!-- Modal end -->
-      </td>
+      </div>
+      <!-- Modal end -->
+
+    </td>
     </tr>
     {% endfor %}
   </table>
