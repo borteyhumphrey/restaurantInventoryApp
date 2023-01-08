@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.contrib.auth import login, logout
+from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from . models import Ingredient, MenuItem, RecipeRequirement, Purchases
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from . forms import IngredientCreate, IngredientUpdate, MenuCreate, PurchaseCreate, RecipeRequirementCreate
 
-
+@login_required
 def home(request):
     return render(request, "inventory/home.html")
 
