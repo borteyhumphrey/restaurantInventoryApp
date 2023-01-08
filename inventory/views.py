@@ -1,57 +1,58 @@
 from django.shortcuts import render
+from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from . models import Ingredient, MenuItem, RecipeRequirement, Purchases
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from . forms import IngredientCreate, IngredientUpdate, IngredientDelete, MenuCreate, PurchaseCreate, RecipeRequirementCreate
-
+from . forms import IngredientCreate, IngredientUpdate, MenuCreate, PurchaseCreate, RecipeRequirementCreate
 
 
 def home(request):
     return render(request, "inventory/home.html")
 
 # Create your views here.
-class IngredientList(ListView):
+class IngredientList(LoginRequiredMixin,ListView):
     model = Ingredient
     template_name = "inventory/ingredients_list.html"
 
-class IngredientCreateView(CreateView):
+class IngredientCreateView(LoginRequiredMixin,CreateView):
     model = Ingredient
     template_name = "inventory/ingredients_create.html"
     form_class = IngredientCreate
     success_url = "/ingredients"
 
-class IngredientUpdateView(UpdateView):
+class IngredientUpdateView(LoginRequiredMixin,UpdateView):
     model = Ingredient
     template_name = "inventory/ingredients_update.html"
     form_class = IngredientUpdate
     success_url = "/ingredients"
 
-class IngredientDeleteView(DeleteView):
+class IngredientDeleteView(LoginRequiredMixin,DeleteView):
     model = Ingredient
     template_name = "inventory/ingredients_list.html"
     success_url = "/ingredients"
 
-class PurchasesList(ListView):
+class PurchasesList(LoginRequiredMixin,ListView):
     model = Purchases
     template_name = "inventory/purchases_list.html"
 
-class PurchasesCreateView(CreateView):
+class PurchasesCreateView(LoginRequiredMixin,CreateView):
     model = Purchases
     template_name = "inventory/purchases_create.html"
     form_class = PurchaseCreate
     success_url = "/purchases"
 
-class MenuCreateView(CreateView):
+class MenuCreateView(LoginRequiredMixin,CreateView):
     model = MenuItem
     template_name = "inventory/menu_create.html"
     form_class = MenuCreate
     success_url = "/menu"
 
-class MenuList(ListView):
+class MenuList(LoginRequiredMixin,ListView):
     model = MenuItem
     template_name = "inventory/menu_list.html"
 
-class RecipeRequirementView(CreateView):
+class RecipeRequirementView(LoginRequiredMixin,CreateView):
     model = RecipeRequirement
     template_name = "inventory/recipe_requirement_create.html"
     form_class = RecipeRequirementCreate
