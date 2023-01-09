@@ -152,4 +152,20 @@ td:nth-child(5) {
   border-bottom-right-radius: 5px;
 }
 
+.form-container {
+  width: 20%;
+  background-color: #fff;
+  height: 400px;
+}
 
+
+.form-wrapper {
+  background: url(images/loginBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
