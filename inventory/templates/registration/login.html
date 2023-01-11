@@ -8,6 +8,7 @@
 <div class="form-wrapper">
     <div class="form-container row d-flex align-items-center justify-content-center shadow  bg-body-tertiary rounded">
         <div class="from-group col-10">
+            <h3 class="mb-3">Login</h3>
             <form method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -21,7 +22,7 @@
                     <label for="Password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" />
                 </div>
-                <input type="submit" class="btn btn-primary" value="Login"/>
+                <input type="submit" class="btn btn-primary col-12" value="Login"/>
             </form>
         </div>
     </div>
