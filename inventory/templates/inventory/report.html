@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+    <tr>
+      <th>Menu Item</th>
+      <th>Price</th>
+      <th>Time</th>
+    </tr>
+    {% for purchase in object_list %}
+    <tr>
+      <td>{{ purchase.menu_item.title }}</td>
+      <td>${{ purchase.menu_item.price }}</td>
+      <td>{{ purchase.timestamp }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p>Revenue: $ {{ revenue|stringformat:".2f" }}</p> 
+
+{% endblock %}
