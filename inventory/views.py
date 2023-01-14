@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
+from django.db.models import Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from . models import Ingredient, MenuItem, RecipeRequirement, Purchases
@@ -62,3 +63,17 @@ class RecipeRequirementView(LoginRequiredMixin,CreateView):
     template_name = "inventory/recipe_requirement_create.html"
     form_class = RecipeRequirementCreate
     success_url = "/menu"
+
+class ReportView(LoginRequiredMixin, ListView):
+    model = Purchases
+    template_name = "inventory/report.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["purchases"] = Purchases.objects.all()
+        revenue = Purchases.objects.aggregate(revenue=Sum('menu_item__price'))["revenue"]
+
+        context["revenue"] = revenue
+
+        return context
+        
